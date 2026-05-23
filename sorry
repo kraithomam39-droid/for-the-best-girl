@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>رسالة اعتذار</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Scheherazade+New:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --rose:     #c8526e;
+      --gold:     #b8860b;
+      --cream:    #fdf6ee;
+      --parchment:#f5e6cb;
+      --ink:      #2c1a0e;
+      --blush:    #f2c9d5;
+      --shadow:   rgba(44, 26, 14, 0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: var(--cream);
+      font-family: 'Amiri', serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      overflow-x: hidden;
+    }
+
+    /* Soft petal background */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 15% 20%, rgba(200,82,110,.12) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 40% at 85% 80%, rgba(184,134,11,.10) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(242,201,213,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Floating petals */
+    .petal {
+      position: fixed;
+      width: 12px; height: 16px;
+      border-radius: 50% 0 50% 0;
+      opacity: 0;
+      animation: fall linear infinite;
+      pointer-events: none;
+    }
+    @keyframes fall {
+      0%   { transform: translateY(-20px) rotate(0deg);   opacity: .6; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0;  }
+    }
+
+    /* Paper */
+    .paper {
+      position: relative;
+      max-width: 680px;
+      width: 100%;
+      background: var(--parchment);
+      border-radius: 2px;
+      padding: 3.5rem 3rem;
+      box-shadow:
+        0 2px 0 var(--gold),
+        0 6px 24px var(--shadow),
+        0 24px 60px rgba(44,26,14,.10),
+        inset 0 0 80px rgba(184,134,11,.06);
+      border: 1px solid rgba(184,134,11,.25);
+      animation: unfold .8s cubic-bezier(.22,1,.36,1) both;
+    }
+    @keyframes unfold {
+      from { opacity: 0; transform: scale(.92) translateY(24px); }
+      to   { opacity: 1; transform: scale(1)  translateY(0);      }
+    }
+
+    /* Decorative top rule */
+    .paper::before {
+      content: '';
+      display: block;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--rose), var(--gold), transparent);
+      margin-bottom: 2.2rem;
+      border-radius: 1px;
+    }
+
+    /* Ornamental divider */
+    .divider {
+      text-align: center;
+      color: var(--gold);
+      font-size: 1.5rem;
+      letter-spacing: .6rem;
+      margin: 1.8rem 0;
+      opacity: .7;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 1.6rem;
+    }
+    .heart {
+      font-size: 2.4rem;
+      line-height: 1;
+      display: block;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { transform: scale(1);    }
+      50%      { transform: scale(1.12); }
+    }
+    .title {
+      font-family: 'Scheherazade New', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--rose);
+      margin-top: .4rem;
+      text-shadow: 0 1px 3px rgba(200,82,110,.2);
+    }
+
+    /* Body text */
+    .body-text {
+      font-family: 'Amiri', serif;
+      font-size: 1.25rem;
+      line-height: 2.2;
+      color: var(--ink);
+      text-align: justify;
+    }
+    .body-text p { margin-bottom: 1.1rem; }
+
+    /* Highlight lines */
+    .highlight {
+      color: var(--rose);
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    /* Signature */
+    .signature {
+      margin-top: 2.2rem;
+      text-align: center;
+    }
+    .sig-label {
+      font-size: 1rem;
+      color: var(--gold);
+      letter-spacing: .08em;
+      opacity: .8;
+    }
+    .sig-name {
+      font-family: 'Scheherazade New', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-top: .3rem;
+    }
+
+    /* Bottom rule */
+    .paper::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--rose), var(--gold), transparent);
+      margin-top: 2.2rem;
+      border-radius: 1px;
+    }
+
+    /* Corner ornaments */
+    .corner {
+      position: absolute;
+      font-size: 1.4rem;
+      color: var(--gold);
+      opacity: .55;
+      line-height: 1;
+    }
+    .corner.tl { top: 1rem; right: 1rem; }
+    .corner.tr { top: 1rem; left:  1rem; }
+    .corner.bl { bottom: 1rem; right: 1rem; }
+    .corner.br { bottom: 1rem; left:  1rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Falling petals (JS generated) -->
+  <script>
+    const colors = ['#c8526e','#e8a0b0','#f2c9d5','#b8860b','#d4a830'];
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      p.className = 'petal';
+      p.style.cssText = `
+        left:${Math.random()*100}vw;
+        background:${colors[i%colors.length]};
+        width:${8+Math.random()*10}px;
+        height:${12+Math.random()*12}px;
+        animation-duration:${6+Math.random()*10}s;
+        animation-delay:${Math.random()*10}s;
+        border-radius:${Math.random()>0.5?'50% 0 50% 0':'0 50% 0 50%'};
+        opacity:.5;
+      `;
+      document.body.appendChild(p);
+    }
+  </script>
+
+  <div class="paper">
+    <!-- Corner ornaments -->
+    <span class="corner tl">❧</span>
+    <span class="corner tr">❧</span>
+    <span class="corner bl">❧</span>
+    <span class="corner br">❧</span>
+
+    <!-- Header -->
+    <div class="header">
+      <span class="heart">🌸</span>
+      <div class="title">رسالة اعتذار من أبٍ إلى ابنته</div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- Body -->
+    <div class="body-text">
+      <p>
+        إلى <span class="highlight">نور عيني وبهجة قلبي</span>،
+      </p>
+      <p>
+        أكتب إليكِ هذه الكلمات وقلبي مثقلٌ بالندم، وعيناي تبحثان عن مسامحتكِ في كلّ لحظة.
+        لقد أخطأتُ في حقّكِ، وأدركتُ ذلك تمامًا.
+      </p>
+      <p>
+        أعلم أنّ كلماتي — أو ربّما صمتي — قد آلمتكِ، وهذا آخر ما كنتُ أتمنّاه لكِ يا حبيبتي.
+        أنتِ من علّمتِني معنى الحبّ الحقيقي منذ أن نظرتُ إليكِ أوّل مرّة.
+      </p>
+      <p>
+        <span class="highlight">أعتذر منكِ بكلّ صدق</span>، ليس لأنّ الاعتذار واجبٌ عليّ، بل لأنّني أُحبّكِ أكثر ممّا تتخيّلين، ولأنّ ابتسامتكِ تساوي عندي كلّ شيء.
+      </p>
+      <p>
+        وعدتُ نفسي أن أكون أحسن، وأن أستمع إليكِ أكثر، وأن أكون الأب الذي تستحقّينه دائمًا.
+        فأنتِ لستِ مجرّد ابنتي — أنتِ <span class="highlight">فخري وأملي وروحي</span>.
+      </p>
+      <p>
+        أرجوكِ سامحيني، فإنّ قلبَ أبيكِ لا يرتاح إلّا حين يعلم أنّكِ بخير وأنّكِ معه.
+      </p>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- Signature -->
+    <div class="signature">
+      <div class="sig-label">بكلّ الحبّ والشوق</div>
+      <div class="sig-name">أبوكِ المحبّ ❤️</div>
+    </div>
+  </div>
+
+</body>
+</html>
